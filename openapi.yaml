@@ -62,7 +62,7 @@ components:
           type: string
           description: onair status
           enum:
-            - onair
+            - on_air
             - scheduled
             - closed
     NiconicoLive:
@@ -89,6 +89,6 @@ components:
           type: string
           description: onair status
           enum:
-            - onair
+            - on_air
             - scheduled
             - closed
