@@ -1,0 +1,94 @@
+openapi: 3.0.3
+info:
+  title: api.aoirint.com - OpenAPI 3.0
+  description: |-
+    This is an API server of [@aoirint](https://github.com/aoirint).
+  version: 0.1.0
+servers:
+  - url: https://api.aoirint.com
+tags:
+  - name: live
+    description: Live streaming
+paths:
+  /youtube_live:
+    get:
+      tags:
+        - live
+      summary: Get YouTube Live
+      operationId: findYouTubeLive
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/YouTubeLive'
+  /niconico_live:
+    get:
+      tags:
+        - live
+      summary: Get Niconico Live
+      operationId: findNiconicoLive
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NiconicoLive'
+components:
+  schemas:
+    YouTubeLive:
+      type: object
+      required:
+        - title
+        - url
+        - started_at
+        - status
+      properties:
+        title:
+          type: string
+          example: '作業（ぼいぼとか）'
+        url:
+          type: string
+          example: 'https://www.youtube.com/watch?v=dw9pRJ13_jk'
+        started_at:
+          type: string
+          example: '2022-10-21T22:24:31+09:00'
+        ended_at:
+          type: string
+          example: '2022-10-21T23:50:11+09:00'
+        status:
+          type: string
+          description: onair status
+          enum:
+            - onair
+            - scheduled
+            - closed
+    NiconicoLive:
+      type: object
+      required:
+        - title
+        - url
+        - started_at
+        - status
+      properties:
+        title:
+          type: string
+          example: '作業（ぼいぼとか）'
+        url:
+          type: string
+          example: 'https://live.nicovideo.jp/watch/lv338946676'
+        started_at:
+          type: string
+          example: '2022-10-21T22:24:31+09:00'
+        ended_at:
+          type: string
+          example: '2022-10-21T23:50:11+09:00'
+        status:
+          type: string
+          description: onair status
+          enum:
+            - onair
+            - scheduled
+            - closed
