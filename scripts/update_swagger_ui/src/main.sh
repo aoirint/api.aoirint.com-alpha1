@@ -14,7 +14,7 @@ cd "${TMP_ROOT}"
 wget -O swagger-ui.zip "https://github.com/swagger-api/swagger-ui/archive/refs/tags/${VERSION}.zip"
 unzip swagger-ui.zip
 
+sed -i -e "s|https://petstore.swagger.io/v2/swagger.json|${JSON_URL}|g" swagger-ui-*/dist/swagger-initializer.js
+
 mkdir -p "${OUTPUT_ROOT}"
 rsync -av --delete swagger-ui-*/dist/ "${OUTPUT_ROOT}/"
-
-sed -i -e "s|https://petstore.swagger.io/v2/swagger.json|${JSON_URL}|g" "${OUTPUT_ROOT}/swagger-initializer.js"
