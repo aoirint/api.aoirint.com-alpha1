@@ -1,4 +1,7 @@
 ```shell
-sudo ./scripts/update_swagger_ui/run.sh
+cd scripts/update_swagger_ui
+sudo ./run.sh
+
+cd scripts/update_swagger_ui
 sudo ./scripts/update_openapi/run.sh
 ```
